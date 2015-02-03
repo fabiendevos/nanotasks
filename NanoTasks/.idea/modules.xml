@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/NanoTasks.iml" filepath="$PROJECT_DIR$/NanoTasks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nanotasks/nanotasks.iml" filepath="$PROJECT_DIR$/nanotasks/nanotasks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nanotasksample/nanotasksample.iml" filepath="$PROJECT_DIR$/nanotasksample/nanotasksample.iml" />
+    </modules>
+  </component>
+</project>
+
