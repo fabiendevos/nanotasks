@@ -3,6 +3,7 @@ Extremely light way to execute code in the background on Android. Alternative to
 
 ## Usage
 
+```java
     Tasks.executeInBackground(context, new BackgroundWork<Data>() {
         @Override
         public String doInBackground() throws Exception {
@@ -19,3 +20,4 @@ Extremely light way to execute code in the background on Android. Alternative to
             showError(e);
         }
     });
+```
