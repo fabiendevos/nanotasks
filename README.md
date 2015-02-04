@@ -25,6 +25,23 @@ Tasks.executeInBackground(context, new BackgroundWork<Data>() {
 });
 ```
 
+## Dependency
+
+**Gradle**
+```groovy
+compile 'com.fabiendevos:nanotasks:1.0.0'
+```
+**Maven**
+```xml
+<dependency>
+  <groupId>com.fabiendevos</groupId>
+  <artifactId>nanotasks</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
+
+You can also [download it directly from Maven Central repo](https://search.maven.org/#search%7Cga%7C1%7Cnanotasks).
+
 ## Author
 
 Fabien Devos
