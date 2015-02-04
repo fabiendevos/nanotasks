@@ -12,12 +12,12 @@ public final class Tasks {
 
     private Tasks() { throw new UnsupportedOperationException(); }
 
-    public static <T> void executeInBackground(Context context, BackgroundWork<T> backgroundWork, Completion<T> completion) {
-        new Task<T>(context, backgroundWork, completion).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+    public static <C extends Context, T> void execute(C context, BackgroundWork<T> backgroundWork, Completion<C, T> completion) {
+        new Task<C, T>(context, backgroundWork, completion).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
-    public static <T> void executeInBackground(Context context, BackgroundWork<T> backgroundWork, Completion<T> completion, Executor executor) {
-        new Task<T>(context, backgroundWork, completion).executeOnExecutor(executor);
+    public static <C extends Context, T> void execute(C context, BackgroundWork<T> backgroundWork, Completion<C, T> completion, Executor executor) {
+        new Task<C, T>(context, backgroundWork, completion).executeOnExecutor(executor);
     }
 
 }

@@ -8,20 +8,20 @@ import java.lang.ref.WeakReference;
 /**
  * @author Fabien Devos
  */
-/*package*/ class Task<T> extends AbstractTask<T> {
+/*package*/ class Task<C extends Context, T> extends AbstractTask<T> {
 
-    private WeakReference<Context> weakContext;
-    private Completion<T> completion;
+    private WeakReference<C> weakContext;
+    private Completion<C, T> completion;
 
-    /*package*/ Task(Context context, BackgroundWork<T> backgroundWork, Completion<T> completion) {
+    /*package*/ Task(C context, BackgroundWork<T> backgroundWork, Completion<C,T> completion) {
         super(backgroundWork);
-        this.weakContext = new WeakReference<Context>(context);
+        this.weakContext = new WeakReference<C>(context);
         this.completion = completion;
     }
 
     @Override
     protected void onSuccess(T result) {
-        final Context context = weakContext.get();
+        final C context = weakContext.get();
         if (completion != null && context != null) {
             completion.onSuccess(context, result);
         }
@@ -29,7 +29,7 @@ import java.lang.ref.WeakReference;
 
     @Override
     protected void onError(Exception e) {
-        final Context context = weakContext.get();
+        final C context = weakContext.get();
         if (completion != null && context != null) {
             completion.onError(context, e);
         }

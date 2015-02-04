@@ -1,6 +1,5 @@
 package com.nanotasks.nanotasksample;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -26,24 +25,24 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 showProgress();
-                Tasks.executeInBackground(v.getContext(), new BackgroundWork<String>() {
+                Tasks.execute(MainActivity.this, new BackgroundWork<String>() {
                     @Override
                     public String doInBackground() throws Exception {
                         final int DELAY = 3;
                         Thread.sleep(TimeUnit.SECONDS.toMillis(DELAY));
                         return "Worked hard for " + DELAY + " seconds";
                     }
-                }, new Completion<String>() {
+                }, new Completion<MainActivity, String>() {
                     @Override
-                    public void onSuccess(Context context, String result) {
+                    public void onSuccess(MainActivity context, String result) {
                         Toast.makeText(context, result, Toast.LENGTH_LONG).show();
-                        hideProgress();
+                        context.hideProgress();
                     }
 
                     @Override
-                    public void onError(Context context, Exception e) {
+                    public void onError(MainActivity context, Exception e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
-                        hideProgress();
+                        context.hideProgress();
                     }
                 });
             }
