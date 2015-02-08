@@ -1,23 +1,28 @@
 package com.nanotasks;
 
-import android.content.Context;
+import android.app.Application;
 import android.os.AsyncTask;
 
 import java.util.concurrent.Executor;
 
 /**
+ * API to handle Tasks.
  * @author Fabien Devos
  */
 public final class Tasks {
 
     private Tasks() { throw new UnsupportedOperationException(); }
 
-    public static <C extends Context, T> void execute(C context, BackgroundWork<T> backgroundWork, Completion<C, T> completion) {
-        new Task<C, T>(context, backgroundWork, completion).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+    public static void autoCleanUpOnDestroy(Application application) {
+        application.registerActivityLifecycleCallbacks(new CleanUpTasksLifeCycleHandler());
     }
 
-    public static <C extends Context, T> void execute(C context, BackgroundWork<T> backgroundWork, Completion<C, T> completion, Executor executor) {
-        new Task<C, T>(context, backgroundWork, completion).executeOnExecutor(executor);
+    public static <T> void execute(BackgroundWork<T> backgroundWork, Completion<T> completion) {
+        new Task<T>(backgroundWork, completion).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+    }
+
+    public static <T> void execute(BackgroundWork<T> backgroundWork, Completion<T> completion, Executor executor) {
+        new Task<T>(backgroundWork, completion).executeOnExecutor(executor);
     }
 
 }

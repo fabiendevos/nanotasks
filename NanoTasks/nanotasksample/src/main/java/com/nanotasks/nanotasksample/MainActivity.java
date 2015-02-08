@@ -25,24 +25,24 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 showProgress();
-                Tasks.execute(MainActivity.this, new BackgroundWork<String>() {
+                Tasks.execute(new BackgroundWork<String>() {
                     @Override
                     public String doInBackground() throws Exception {
                         final int DELAY = 3;
                         Thread.sleep(TimeUnit.SECONDS.toMillis(DELAY));
                         return "Worked hard for " + DELAY + " seconds";
                     }
-                }, new Completion<MainActivity, String>() {
+                }, new Completion<String>() {
                     @Override
-                    public void onSuccess(MainActivity context, String result) {
-                        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
-                        context.hideProgress();
+                    public void onSuccess(String result) {
+                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+                        hideProgress();
                     }
 
                     @Override
-                    public void onError(MainActivity context, Exception e) {
-                        Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
-                        context.hideProgress();
+                    public void onError(Exception e) {
+                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                        hideProgress();
                     }
                 });
             }
