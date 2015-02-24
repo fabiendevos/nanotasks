@@ -45,8 +45,8 @@ You can also [download it directly from Maven Central repo](https://search.maven
 ## Author
 
 Fabien Devos
- - [Twitter @fabien_devos](twitter.com/fabien_devos)
- - [LinkedIn](www.linkedin.com/in/fabiendevos)
+ - [Twitter @fabien_devos](http://twitter.com/fabien_devos)
+ - [LinkedIn](http://www.linkedin.com/in/fabiendevos)
 
 ## License
 
