@@ -3,7 +3,7 @@ Extremely light way to execute code in the background on Android. Alternative to
 
 ## Notes
  - NanoTasks is meant to be extremely simple to use and leightweight. If you are looking for more features please have a look to RxJava or Bolt.
- - The onSuccess/onError callbacks won't be called if your context is null. No more NPE crashes because the Activity was destroyed.
+ - The onSuccess/onError callbacks won't be called if your context is null. No more NPE crashes because the Activity was destroyed (Although as some people [pointed out](https://github.com/fabiendevos/nanotasks/issues/1]) this is not totally solved yet. I'm working on a better solution for the v2).
 
 ## Usage
 
