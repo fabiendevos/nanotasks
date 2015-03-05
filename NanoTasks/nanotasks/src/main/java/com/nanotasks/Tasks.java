@@ -1,5 +1,6 @@
 package com.nanotasks;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -21,6 +22,7 @@ public final class Tasks {
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public static <T> void executeInBackground(Context context, BackgroundWork<T> backgroundWork, Completion<T> completion, Executor executor) {
         new Task<T>(context, backgroundWork, completion).executeOnExecutor(executor);
     }
