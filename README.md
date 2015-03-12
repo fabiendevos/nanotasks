@@ -1,5 +1,6 @@
 # NanoTasks
-Extremely light way to execute code in the background on Android. Alternative to AsyncTask.
+NanoTasks is an extremely light way to execute code in the background on Android.
+It is a wrapper arround AsyncTask that provides a simpler to use and more flexible API.
 
 ## Notes
  - NanoTasks is meant to be extremely simple to use and leightweight. If you are looking for more features please have a look to RxJava or Bolt.
