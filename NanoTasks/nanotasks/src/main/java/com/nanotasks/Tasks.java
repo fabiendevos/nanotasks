@@ -16,6 +16,7 @@ public final class Tasks {
         throw new UnsupportedOperationException();
     }
 
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public static <T> void executeInBackground(Context context, BackgroundWork<T> backgroundWork, Completion<T> completion) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             executeInBackground(context, backgroundWork, completion, AsyncTask.THREAD_POOL_EXECUTOR);
