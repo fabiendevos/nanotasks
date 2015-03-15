@@ -30,14 +30,14 @@ Tasks.executeInBackground(context, new BackgroundWork<Data>() {
 
 **Gradle**
 ```groovy
-compile 'com.fabiendevos:nanotasks:1.0.0'
+compile 'com.fabiendevos:nanotasks:1.1.0'
 ```
 **Maven**
 ```xml
 <dependency>
   <groupId>com.fabiendevos</groupId>
   <artifactId>nanotasks</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
 </dependency>
 ```
 
